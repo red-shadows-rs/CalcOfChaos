@@ -6,7 +6,6 @@
     const modalClose = document.getElementById('modalClose');
     const videoFrame = document.getElementById('videoFrame');
 
-    // نافذة التحذير الجديدة
     let alertModal = document.createElement('div');
     alertModal.className = 'alert-modal';
     alertModal.innerHTML = `
