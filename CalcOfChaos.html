@@ -1,0 +1,67 @@
+<!-- THIS PROJECT IS FOR FUN ONLY -->
+<!-- FOLLOWING TO RED SHADOWS PRJ -->
+
+<!doctype html5>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="this project is for fun only" />
+    <meta name="author" content="Red Shadows | RS">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors *;">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/147977466?s=48&v=4" type="image/x-icon">
+    <link rel="stylesheet" href="style/CalcOfChaosStyle.css" type="text/css">
+    <title>Calc Of Chaos</title>
+</head>
+
+<body>
+
+    <main class="calculator" aria-label="calculator">
+        <p><span
+                style="color: var(--accent); font-weight: bold; background: #1f2030; border-radius: 10px; border: var(--border); padding: 5px">RED SHADOWS</span>
+        </p>
+        <div class="display" id="display">
+            <div class="expr" id="expr">0</div>
+            <div class="out" id="out">0</div>
+        </div>
+
+        <div class="pad">
+            <button class="key" data-action="clear">C</button>
+            <button class="key" data-value="(">(</button>
+            <button class="key" data-value=")">)</button>
+            <button class="key operator" data-value="÷">÷</button>
+
+            <button class="key" data-value="7">7</button>
+            <button class="key" data-value="8">8</button>
+            <button class="key" data-value="9">9</button>
+            <button class="key operator" data-value="×">×</button>
+
+            <button class="key" data-value="4">4</button>
+            <button class="key" data-value="5">5</button>
+            <button class="key" data-value="6">6</button>
+            <button class="key operator" data-value="-">-</button>
+
+            <button class="key" data-value="1">1</button>
+            <button class="key" data-value="2">2</button>
+            <button class="key" data-value="3">3</button>
+            <button class="key operator" data-value="+">+</button>
+
+            <button class="key zero" data-value="0">0</button>
+            <button class="key" data-value=".">.</button>
+            <button class="key equal" id="equals">=</button>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <iframe id="videoFrame" src="" allowfullscreen></iframe>
+            <div class="controls">
+                <button class="btn-close" id="modalClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/CalcOfChaosScript.js"></script>
+</body>
+
+</html>
