@@ -6,6 +6,21 @@
     const modalClose = document.getElementById('modalClose');
     const videoFrame = document.getElementById('videoFrame');
 
+    // نافذة التحذير الجديدة
+    let alertModal = document.createElement('div');
+    alertModal.className = 'alert-modal';
+    alertModal.innerHTML = `
+        <div class="alert-box">
+            <p>Please enter an expression first!</p>
+            <button id="alertClose">OK</button>
+        </div>
+    `;
+    document.body.appendChild(alertModal);
+    const alertClose = alertModal.querySelector('#alertClose');
+    alertClose.addEventListener('click', () => {
+        alertModal.classList.remove('active');
+    });
+
     let expression = '';
 
     function render() {
@@ -34,7 +49,10 @@
     ];
 
     equalsBtn.addEventListener('click', () => {
-        if (expression.trim() === '') return; 
+        if (expression.trim() === '') {
+            showAlert();
+            return;
+        }
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         videoFrame.src = randomVideo;
         openModal();
@@ -50,7 +68,10 @@
         }
 
         if (key === '=' || key === 'Enter') {
-            if (expression.trim() === '') return; 
+            if (expression.trim() === '') {
+                showAlert();
+                return;
+            }
             const randomVideo = videos[Math.floor(Math.random() * videos.length)];
             videoFrame.src = randomVideo;
             openModal();
@@ -76,6 +97,10 @@
     function closeModal() {
         overlay.classList.remove('active');
         videoFrame.src = "";
+    }
+
+    function showAlert() {
+        alertModal.classList.add('active');
     }
 
     modalClose.addEventListener('click', closeModal);
