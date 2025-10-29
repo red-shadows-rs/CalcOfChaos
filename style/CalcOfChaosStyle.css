@@ -1,0 +1,161 @@
+:root {
+    --bg: #3a3f57;
+    --accent: #8f5cf4;
+    --text: #fff;
+    --border: 2px solid #8f5cf4;
+    --hover: #a27cff;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text);
+}
+
+.calculator {
+    width: 340px;
+    background: #2b2b3d;
+    border: var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.display {
+    background: #1f2030;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: var(--border);
+}
+
+.display .expr {
+    font-size: 14px;
+    opacity: 0.8;
+    color: #ccc;
+}
+
+.display .out {
+    font-size: 22px;
+    margin-top: 4px;
+}
+
+.pad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+}
+
+button.key {
+    height: 56px;
+    border-radius: 10px;
+    border: var(--border);
+    background: #3a3f57;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button.key:hover {
+    background: var(--hover);
+}
+
+button.key:active {
+    transform: translateY(1px);
+}
+
+button.operator {
+    color: var(--accent);
+    background: #2b2b3d;
+}
+
+button.equal {
+    background: var(--accent);
+    color: #fff;
+    grid-column: span 2;
+    font-weight: bold;
+}
+
+button.zero {
+    grid-column: span 2;
+}
+
+/* زر الجمع الكبير */
+button.key.operator[data-value="+"] {
+    grid-row: span 2;
+    height: 122px;
+    font-size: 30px;
+    background: #2f2749;
+}
+
+/* المودال */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: #2b2b3d;
+    border: var(--border);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 420px;
+    padding: 16px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.modal iframe {
+    width: 100%;
+    height: 230px;
+    border: none;
+    border-radius: 10px;
+}
+
+.modal .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.btn-close {
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-close:hover {
+    background: var(--hover);
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        width: 92vw;
+    }
+}
